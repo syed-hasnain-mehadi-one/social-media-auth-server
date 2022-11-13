@@ -1,6 +1,7 @@
 import passport from "passport";
 import FacebookStrategy from "passport-facebook";
 import GoogleStrategy from "passport-google-oauth20";
+
 export const googleStrategies = () => {
   passport.use(
     new GoogleStrategy(
@@ -10,8 +11,11 @@ export const googleStrategies = () => {
         callbackURL: "/auth/google/redirect",
       },
       function (accessToken, refreshToken, profile, cb) {
-        console.log("data", accessToken, refreshToken, profile);
-        return cb(err, accessToken);
+        console.log("data-1", accessToken);
+        console.log("data-2", refreshToken);
+        console.log("data-3", profile);
+        //
+        return cb(null, profile);
       }
     )
   );
@@ -27,7 +31,7 @@ export const facebookStrategies = () => {
       },
       function (accessToken, refreshToken, profile, cb) {
         console.log("data", accessToken, refreshToken, profile);
-        return cb(err, cb);
+        return cb(numm, profile);
       }
     )
   );
