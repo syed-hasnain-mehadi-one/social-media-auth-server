@@ -30,7 +30,6 @@ const userSchema = new Schema(
     },
     password: {
       type: String,
-      required: [true, "password should not be null"],
       select: false,
     },
     profile: {
